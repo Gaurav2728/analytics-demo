@@ -1,9 +1,23 @@
 class StatsController < ApplicationController
-  before_action :top_entries
+  def index
+  end
+
   def top_urls
+    respond_to do |format|
+      format.html
+      format.json do
+        top_entries
+      end
+    end
   end
 
   def top_referrers
+    respond_to do |format|
+      format.html
+      format.json do
+        top_entries
+      end
+    end
   end
 
   private

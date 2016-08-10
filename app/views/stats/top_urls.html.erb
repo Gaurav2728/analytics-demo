@@ -1,0 +1,25 @@
+<a name="top"><h1 class="page_title">Number of Page Views Per URL</h1></a>
+
+<div class="container" ng-app="AnalyticsDemo" ng-controller="TopUrls">
+
+<ul class="navigation">
+  <li ng-repeat="(date, data) in reports">
+    <a href="#{{date}}">{{ date }}</a>
+  </li>
+</ul>
+
+<div ng-repeat="(date, data) in reports">
+  <a name="{{date}}"><h2 class="date">{{ date }}</h2></a>
+  <table>
+    <tr>
+      <th>URL</th>
+      <th>VISITS</th>
+    </tr>
+    <tbody>
+      <tr ng-repeat="(id, record) in data">
+        <td>{{ record.url }}</td>
+        <td>{{ record.visits }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

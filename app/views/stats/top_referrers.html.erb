@@ -1,0 +1,31 @@
+<h1 class="page_title">Top 5 Referrers for the Top 10 URLs</h1>
+
+<div class="container" ng-app="AnalyticsDemo" ng-controller="TopReferrers">
+
+<ul class="navigation">
+  <li ng-repeat="(date, data) in reports">
+    <a href="#{{date}}">{{ date }}</a>
+  </li>
+</ul>
+
+<div ng-repeat="(date, array) in reports">
+  <a name="{{date}}"><h2 class="date">{{ date }}</h2></a>
+  <a href="#top"><span class="back">Go back to top</span></a>
+  <table>
+    <tr>
+      <th>URL</th>
+      <th>VISITS</th>
+      <th>REFERRERS</th>
+    </tr>
+    <tr ng-repeat="data in array">
+      <td>{{ data.url }}</td>
+      <td>{{ data.visits }}</td>
+      <td>
+        <div class="referrer" ng-repeat="ref in data.referrers">
+          <div class="ref_url">{{ ref.url }}</div>
+          <div class="ref_visits">{{ ref.visits }}</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
