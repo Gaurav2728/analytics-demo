@@ -15,3 +15,9 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
 end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', '~> 3.1'
+end
