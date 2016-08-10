@@ -19,6 +19,19 @@ class Entry < Sequel::Model
     self.entry_hash = generate_entry_hash
   end
 
+  def top_referrers
+    attributes_to_select = [:referrer]
+    Entry.last_five_days.where(
+      url: url
+    ).exclude(
+      referrer: nil
+    ).select(
+      *attributes_to_select
+    ).group_and_count(
+      *attributes_to_select
+    ).order(:count).reverse
+  end
+
   def self.top_entries
     attributes_to_select = [:url, Sequel.as(Sequel.function(:date, :created_at), :date)]
     Entry.last_five_days.select(

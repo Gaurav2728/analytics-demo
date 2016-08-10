@@ -42,4 +42,16 @@ RSpec.describe Entry, type: :model do
       expect(lower_entry[:count]).to eq(1)
     end
   end
+
+  describe '#top_referrers' do
+    it 'returns top referrers' do
+      date = Date.today
+      referrer = "https://google.com"
+      entry = build(:entry, referrer: referrer, created_at: date).save
+
+      top_referrer = entry.top_referrers.first
+      expect(top_referrer[:referrer]).to eq(referrer)
+      expect(top_referrer[:count]).to eq(1)
+    end
+  end
 end
