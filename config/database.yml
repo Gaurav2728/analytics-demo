@@ -1,0 +1,11 @@
+development:
+  adapter: mysql2
+  database: analytics_demo_development
+  user: root
+  password:
+
+test:
+  adapter: mysql2
+  database: analytics_demo_test
+  user: root
+  password:
