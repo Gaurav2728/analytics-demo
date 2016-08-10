@@ -1,28 +1,30 @@
-== README
+# It's All About Stats
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails application that uses MySQL, Sequel, and AngularJS to calculate and display:
 
-Things you may want to cover:
+1. Number of page views per URL, grouped by day, for the past 5 days
 
-* Ruby version
+2. Top 5 referrers for the top 10 URLs, grouped by day, for the past 5 days
 
-* System dependencies
+## Running the application
 
-* Configuration
+To run this application, you will need Rails and MySQL installed.
 
-* Database creation
+```
+$ bundle install
+$ rake db:reset
+$ rails server
+```
 
-* Database initialization
+## Viewing the data
 
-* How to run the test suite
+Visit [http://localhost:3000/top_urls](http://localhost:3000/top_urls) to
+see the page views per URL, grouped by day, for the past 5 days.
 
-* Services (job queues, cache servers, search engines, etc.)
+Visit [http://localhost:3000/top_referrers](http://localhost:3000/top_referrers) to
+see the top 5 referrers for the top 10 URLs, grouped by day, for the past 5 days.
 
-* Deployment instructions
+## TODO
 
-* ...
+* Add pagination to the API calls so it will not be slow while fetching so many records.
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
